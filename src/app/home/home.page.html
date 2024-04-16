@@ -1,7 +1,7 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" >
   <ion-toolbar>
     <ion-title>
-      Blank
+      Higor
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,46 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Higor</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list>
+    <ion-list>
+      <form [formGroup]="clienteForm" (submit)="submit()">
+        <ion-item lines="none">
+          <ion-input [(ngModel)]="cliente.nome"  type="text"
+          labelPlacement="floating" label="Nome"
+          formControlName="nome" required name="nome"></ion-input>
+
+        </ion-item>
+        <small *ngIf="clienteForm.get('nome').errors?.['required']">Nome é obrigatório!</small>
+        <ion-item lines="none">
+          <ion-input label="Idade" labelPlacement="floating" type="number"
+            placeholder="000" [(ngModel)]="cliente.idade" name="idade"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-input label="Senha" labelPlacement="floating" type="password"
+          [(ngModel)]="cliente.senha" name="senha"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-input label="Email" labelPlacement="floating" type="email"
+            placeholder="email@email.com" [(ngModel)]="cliente.email"
+            name="email"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-input label="Telefone" labelPlacement="floating" type="tel"
+            placeholder="(22) 88888-8888" [(ngModel)]="cliente.telefone"
+            name="telefone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-button shape="round" color="primary" expand="block" class="ion-padding"
+            type="submit" [disabled]="!clienteForm.valid">Salvar</ion-button>
+        </ion-item>
+      </form>
+    </ion-list>
+  </ion-list>
 </ion-content>

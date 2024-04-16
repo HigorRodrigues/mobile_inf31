@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Serviços</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let tipoServico of tiposDeServico">
+      <ion-label>
+        <h2>{{tipoServico.nome}}</h2>
+        <p style="text-align: right">R$ {{tipoServico.valor}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

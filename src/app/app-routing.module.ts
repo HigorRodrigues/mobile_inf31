@@ -15,6 +15,15 @@ const routes: Routes = [
     path: 'tipo-servicos-listagem',
     loadChildren: () => import('./tipo-servicos/tipo-servicos-listagem/tipo-servicos-listagem.module').then( m => m.TipoServicosListagemPageModule)
   },
+  {
+    path: 'listagem-itens',
+    loadChildren: () => import('./tipo-servicos/listagem-itens/listagem-itens.module').then( m => m.ListagemItensPageModule)
+  },
+
+  {
+    path: 'tipo-servico/:id',
+    loadChildren: () => import('./tipo-servicos/tipo-servico/tipo-servico.module').then( m => m.TipoServicoPageModule)
+  },
 ];
 
 @NgModule({

@@ -20,9 +20,12 @@
           <ion-input [(ngModel)]="cliente.nome"  type="text"
           labelPlacement="floating" label="Nome"
           formControlName="nome" required name="nome"></ion-input>
-
         </ion-item>
-        <small *ngIf="clienteForm.get('nome').errors?.['required']">Nome é obrigatório!</small>
+
+        <small *ngIf="clienteForm.get('nome').errors?.['required']">
+          Nome é obrigatório!
+        </small>
+
         <ion-item lines="none">
           <ion-input label="Idade" labelPlacement="floating" type="number"
             placeholder="000" [(ngModel)]="cliente.idade" name="idade"></ion-input>
@@ -45,8 +48,14 @@
             name="telefone"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-button shape="round" color="primary" expand="block" class="ion-padding"
-            type="submit" [disabled]="!clienteForm.valid">Salvar</ion-button>
+
+          <ion-button shape="round" color="primary" expand="block"
+            class="ion-padding" type="submit"
+            [disabled]="!clienteForm.valid">
+            Salvar
+          </ion-button>
+
+
         </ion-item>
       </form>
     </ion-list>

@@ -4,13 +4,30 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-list>
-    <ion-item *ngFor="let tipoServico of tiposDeServico">
-      <ion-label>
-        <h2>{{tipoServico.nome}}</h2>
-        <p style="text-align: right">R$ {{tipoServico.valor}}</p>
-      </ion-label>
+<ion-content padding>
+
+  <form (ngSubmit)="submit()">
+
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+
+      <ion-input type="text" placeholder="Nome"
+        [(ngModel)]="cliente.nome" name="nome"></ion-input>
+
+      </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" placeholder="Email"
+        ref-inputEmail></ion-input>
     </ion-item>
-  </ion-list>
+
+    <ion-input type="tel" placeholder="Telefone"></ion-input>
+    <ion-input type="number" placeholder="Renda" text-right></ion-input>
+    <ion-input type="text" placeholder="Nascimento"></ion-input>
+
+    <ion-button shape="round" color="primary" expand="block" padding
+      type="submit">
+        Confirmar
+    </ion-button>
+  </form>
 </ion-content>

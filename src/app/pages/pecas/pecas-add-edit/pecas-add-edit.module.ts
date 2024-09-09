@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { IonicModule } from '@ionic/angular';
-import { TipoServicoPageRoutingModule } from './tipo-servico-routing.module';
-import { TipoServicoPage } from './tipo-servico.page';
+
+import { PecasAddEditPageRoutingModule } from './pecas-add-edit-routing.module';
+
+import { PecasAddEditPage } from './pecas-add-edit.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TipoServicoPageRoutingModule,
+    PecasAddEditPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [TipoServicoPage]
+  declarations: [PecasAddEditPage]
 })
-export class TipoServicoPageModule {}
+export class PecasAddEditPageModule {}

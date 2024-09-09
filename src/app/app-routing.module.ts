@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
+import { PreloadAllModules, RouteReuseStrategy, RouterModule, Routes } from '@angular/router';
+import { IonicRouteStrategy } from '@ionic/angular';
 
 const routes: Routes = [
   {
@@ -24,12 +26,19 @@ const routes: Routes = [
     path: 'tipo-servico/:id',
     loadChildren: () => import('./tipo-servicos/tipo-servico/tipo-servico.module').then( m => m.TipoServicoPageModule)
   },
+  {
+    path: 'pecas-add-edit',
+    loadChildren: () => import('./pages/pecas/pecas-add-edit/pecas-add-edit.module').then( m => m.PecasAddEditPageModule)
+  },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    FormBuilder, {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
+  ]
 })
 export class AppRoutingModule { }

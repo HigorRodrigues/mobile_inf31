@@ -36,5 +36,8 @@ export class TipoServicosServiceService {
       (this.getIndexOfElement(tipoServico.id), 1);
   }
 
-
+  update(tipoServico: any){
+    this.tipos_servicos[this.getIndexOfElement(tipoServico.id)] = tipoServico;
+    console.log(this.tipos_servicos)
+  }
 }

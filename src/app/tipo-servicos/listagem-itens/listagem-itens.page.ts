@@ -23,10 +23,13 @@ export class ListagemItensPage implements OnInit{
     this.tipos_servicos = this.tiposServico.getTiposServicos();
   }
 
-async removerServico(tipoServico: TipoServico){
-  this.tiposServico.remove(tipoServico);
-  this.toastService.presentToast('Tipo de serviço removido com sucesso',
-    3000, 'top');
-  await this.slidingList?.closeSlidingItems();
-}
+  async removerServico(tipoServico: TipoServico){
+    this.tiposServico.remove(tipoServico);
+    this.toastService.presentToast('Tipo de serviço removido com sucesso',
+      3000, 'top');
+    await this.slidingList?.closeSlidingItems();
+  }
+
+
+
 }

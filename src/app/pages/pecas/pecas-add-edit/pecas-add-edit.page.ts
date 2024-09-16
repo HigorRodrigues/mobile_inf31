@@ -40,10 +40,10 @@ export class PecasAddEditPage implements OnInit {
     this.modoEdicao	=	false;
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     const	id	=	this.route.snapshot.paramMap.get('id');
     if(id	&& Guid.isGuid(id))	{
-
+      this.peca = await this.pecaService.getById(id);
     }
     else{
       this.peca	=	{id:	Guid.createEmpty(),	nome:	'',	valor:	0.00	};

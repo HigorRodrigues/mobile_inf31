@@ -27,8 +27,12 @@ const routes: Routes = [
     loadChildren: () => import('./tipo-servicos/tipo-servico/tipo-servico.module').then( m => m.TipoServicoPageModule)
   },
   {
-    path: 'pecas-add-edit',
+    path: 'pecas-add-edit/:id',
     loadChildren: () => import('./pages/pecas/pecas-add-edit/pecas-add-edit.module').then( m => m.PecasAddEditPageModule)
+  },
+  {
+    path: 'pecas-listagem',
+    loadChildren: () => import('./pages/pecas/pecas-listagem/pecas-listagem.module').then( m => m.PecasListagemPageModule)
   },
 ];
 

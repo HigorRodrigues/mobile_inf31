@@ -14,10 +14,27 @@ export class	PecasService	{
   )	{	}
 
   async	update(peca:	Peca)	{
-    await	this.storage.create();
-    if	(peca.id.isEmpty())	{
+    if(peca.id.isEmpty())	{
       peca.id	=	Guid.create();
     }
     this.storage.set(peca.id.toString(),	JSON.stringify(peca));
+  }
+
+  async getById(id: string): Promise<Peca>{
+    const pecaString = await this.storage.get(id);
+    return JSON.parse(pecaString);
+  }
+
+  async getAll() {
+    let pecas: Peca[] = [];
+    try {
+        await this.storage.forEach((value: string, key: string) => {
+            const peca: Peca = JSON.parse(value);
+            pecas.push(peca);
+        });
+        return pecas;
+    } catch (error) {
+        return error;
+    }
   }
 }
